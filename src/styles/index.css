@@ -221,3 +221,22 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+/* Mobile & Small Screens: Native Full-Bleed View (No double-frame) */
+@media (max-width: 768px) {
+  .simulator-container {
+    padding: 0;
+    background: var(--bg-app);
+    min-height: 100vh;
+  }
+  .android-phone-frame {
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .android-status-bar {
+    display: none; /* Native device already has status bar */
+  }
+}

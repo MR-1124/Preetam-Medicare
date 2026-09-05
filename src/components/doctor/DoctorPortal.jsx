@@ -106,18 +106,9 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
   return (
     <div className="doctor-portal">
       {/* Tab Navigation Bar */}
-      <div
-        style={{
-          display: 'flex',
-          gap: '8px',
-          paddingBottom: '16px',
-          marginBottom: '24px',
-          borderBottom: '1px solid var(--border-color)',
-          overflowX: 'auto'
-        }}
-      >
+      <div className="portal-nav-tabs">
         <button
-          className={`btn ${activeTab === 'dashboard' ? 'btn-primary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'dashboard' ? 'active' : ''}`}
           onClick={() => setActiveTab('dashboard')}
         >
           <Activity size={16} />
@@ -125,7 +116,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
         </button>
 
         <button
-          className={`btn ${activeTab === 'patients' ? 'btn-primary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'patients' ? 'active' : ''}`}
           onClick={() => setActiveTab('patients')}
         >
           <Users size={16} />
@@ -133,16 +124,15 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
         </button>
 
         <button
-          className={`btn ${activeTab === 'new-rx' ? 'btn-primary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'new-rx' ? 'active' : ''}`}
           onClick={() => setActiveTab('new-rx')}
-          style={{ background: activeTab === 'new-rx' ? 'var(--primary)' : 'transparent' }}
         >
           <FilePlus size={16} />
           <span>Issue Prescription</span>
         </button>
 
         <button
-          className={`btn ${activeTab === 'lab-reports' ? 'btn-primary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'lab-reports' ? 'active' : ''}`}
           onClick={() => setActiveTab('lab-reports')}
         >
           <Microscope size={16} />
@@ -150,7 +140,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
         </button>
 
         <button
-          className={`btn ${activeTab === 'appointments' ? 'btn-primary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'appointments' ? 'active' : ''}`}
           onClick={() => setActiveTab('appointments')}
         >
           <Calendar size={16} />
@@ -158,7 +148,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
         </button>
 
         <button
-          className={`btn ${activeTab === 'profile' ? 'btn-primary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'profile' ? 'active' : ''}`}
           onClick={() => setActiveTab('profile')}
         >
           <Edit3 size={16} />
@@ -173,23 +163,23 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
           <div
             className="card"
             style={{
-              padding: '24px 28px',
+              padding: 'clamp(16px, 3vw, 24px)',
               background: 'linear-gradient(135deg, #0369a1 0%, #0284c7 60%, #0d9488 100%)',
               color: '#ffffff',
-              marginBottom: '24px',
+              marginBottom: '20px',
               border: 'none',
               boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-              <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
+              <div style={{ flex: '1 1 240px' }}>
                 <span className="badge" style={{ background: 'rgba(255, 255, 255, 0.2)', color: '#ffffff', marginBottom: '8px' }}>
                   {doctor.department} • Active Duty
                 </span>
-                <h1 style={{ fontSize: '1.6rem', fontWeight: 800, margin: '4px 0 6px' }}>
+                <h1 style={{ fontSize: 'clamp(1.25rem, 3vw, 1.6rem)', fontWeight: 800, margin: '4px 0 6px' }}>
                   Welcome, {doctor.name}
                 </h1>
-                <p style={{ fontSize: '0.9rem', color: '#e0f2fe', maxWidth: '560px' }}>
+                <p style={{ fontSize: '0.85rem', color: '#e0f2fe', maxWidth: '560px', margin: 0 }}>
                   {doctor.title} • {doctor.chamber}. You have {appointments.filter((a) => a.status === 'Confirmed').length} active appointments scheduled.
                 </p>
               </div>
@@ -197,7 +187,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
               <div style={{ display: 'flex', gap: '10px' }}>
                 <button
                   className="btn"
-                  style={{ background: '#ffffff', color: '#0369a1', fontWeight: 700 }}
+                  style={{ background: '#ffffff', color: '#0369a1', fontWeight: 700, minHeight: '38px', padding: '8px 16px' }}
                   onClick={() => setActiveTab('new-rx')}
                 >
                   <FilePlus size={16} />
@@ -208,10 +198,10 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
           </div>
 
           {/* Quick Metrics Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '28px' }}>
+          <div className="dashboard-stats-grid">
             <div className="stat-card">
               <div className="stat-icon-wrapper stat-icon-blue">
-                <Users size={24} />
+                <Users size={22} />
               </div>
               <div>
                 <div className="stat-val">{patients.length}</div>
@@ -221,7 +211,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
 
             <div className="stat-card">
               <div className="stat-icon-wrapper stat-icon-green">
-                <Calendar size={24} />
+                <Calendar size={22} />
               </div>
               <div>
                 <div className="stat-val">{appointments.filter((a) => a.status === 'Confirmed').length}</div>
@@ -231,7 +221,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
 
             <div className="stat-card">
               <div className="stat-icon-wrapper stat-icon-teal">
-                <FileText size={24} />
+                <FileText size={22} />
               </div>
               <div>
                 <div className="stat-val">{prescriptions.length}</div>
@@ -241,7 +231,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
 
             <div className="stat-card">
               <div className="stat-icon-wrapper stat-icon-amber">
-                <AlertCircle size={24} />
+                <AlertCircle size={22} />
               </div>
               <div>
                 <div className="stat-val">
@@ -253,7 +243,7 @@ export default function DoctorPortal({ doctor, onToast, initialTab = 'dashboard'
           </div>
 
           {/* Grid: Upcoming Appointments & Recent Issued Prescriptions */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '24px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
             {/* Appointments Section */}
             <div className="card">
               <div className="card-header">

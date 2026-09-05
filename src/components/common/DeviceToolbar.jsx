@@ -21,65 +21,62 @@ export default function DeviceToolbar({ viewMode, onViewModeChange, activeSessio
   return (
     <div className="device-toolbar">
       <div className="device-toolbar-left">
-        <span style={{ fontWeight: 700, letterSpacing: '0.02em', color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#10b981', display: 'inline-block' }} />
-          MediCare Demo Hub
+        <span style={{ fontWeight: 700, letterSpacing: '0.02em', color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '6px', whiteSpace: 'nowrap' }}>
+          <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#10b981', display: 'inline-block', flexShrink: 0 }} />
+          <span>Demo Hub</span>
         </span>
 
         {/* View Mode Toggle */}
-        <div style={{ display: 'flex', gap: '4px', background: '#020617', padding: '3px', borderRadius: '8px' }}>
+        <div style={{ display: 'flex', gap: '3px', background: '#020617', padding: '2px', borderRadius: '6px', flexShrink: 0 }}>
           <button
             className={`view-toggle-btn ${viewMode === 'laptop' ? 'active' : ''}`}
             onClick={() => onViewModeChange('laptop')}
             title="Full Laptop / Desktop Browser View"
           >
-            <Laptop size={14} />
-            <span>Laptop View</span>
+            <Laptop size={13} />
+            <span>Laptop</span>
           </button>
           <button
             className={`view-toggle-btn ${viewMode === 'android' ? 'active' : ''}`}
             onClick={() => onViewModeChange('android')}
             title="Simulated Android Mobile App (412px x 870px)"
           >
-            <Smartphone size={14} />
-            <span>Android App</span>
+            <Smartphone size={13} />
+            <span>Android</span>
           </button>
         </div>
       </div>
 
       <div className="device-toolbar-right">
         {/* Quick Demo Switcher */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <span style={{ fontSize: '0.74rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600 }}>
-            Quick Persona:
-          </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '5px', flexShrink: 0 }}>
           <button
             className="demo-chip"
             onClick={() => handleQuickLogin('doctor', doctors[0])}
             title="Login as Dr. Preetam Sen (Cardiology)"
           >
-            👨‍⚕️ Dr. Preetam Sen
+            👨‍⚕️ Dr. Preetam
           </button>
           <button
             className="demo-chip"
             onClick={() => handleQuickLogin('doctor', doctors[1])}
             title="Login as Dr. Sarah Jenkins (Pediatrics)"
           >
-            👩‍⚕️ Dr. Sarah Jenkins
+            👩‍⚕️ Dr. Sarah
           </button>
           <button
             className="demo-chip"
             onClick={() => handleQuickLogin('patient', patients[0])}
             title="Login as Ananya Roy (Patient)"
           >
-            🙋‍♀️ Ananya Roy
+            🙋‍♀️ Ananya
           </button>
           <button
             className="demo-chip"
             onClick={() => handleQuickLogin('patient', patients[1])}
             title="Login as Rahul Sharma (Patient)"
           >
-            🙋‍♂️ Rahul Sharma
+            🙋‍♂️ Rahul
           </button>
         </div>
 
@@ -87,10 +84,10 @@ export default function DeviceToolbar({ viewMode, onViewModeChange, activeSessio
           className="demo-chip"
           onClick={handleResetData}
           title="Reset hospital database to initial demo state"
-          style={{ marginLeft: '4px', borderColor: '#475569' }}
+          style={{ marginLeft: '2px', borderColor: '#475569' }}
         >
-          <RotateCcw size={12} />
-          <span>Reset Data</span>
+          <RotateCcw size={11} />
+          <span>Reset</span>
         </button>
       </div>
     </div>

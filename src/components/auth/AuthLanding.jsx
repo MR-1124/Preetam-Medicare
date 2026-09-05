@@ -162,7 +162,7 @@ export default function AuthLanding({ onToast }) {
         style={{
           background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0369a1 100%)',
           color: '#ffffff',
-          padding: '52px 24px 64px',
+          padding: 'clamp(28px, 5vw, 52px) clamp(16px, 4vw, 24px) clamp(36px, 6vw, 64px)',
           textAlign: 'center',
           position: 'relative',
           overflow: 'hidden'
@@ -182,7 +182,7 @@ export default function AuthLanding({ onToast }) {
         />
 
         <div style={{ maxWidth: '880px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'inline-block', marginBottom: '20px' }}>
+          <div style={{ display: 'inline-block', marginBottom: '16px' }}>
             <Logo size="lg" variant="white" />
           </div>
 
@@ -190,30 +190,30 @@ export default function AuthLanding({ onToast }) {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '8px',
-              padding: '5px 14px',
+              gap: '6px',
+              padding: '4px 12px',
               background: 'rgba(255, 255, 255, 0.1)',
               borderRadius: '999px',
-              fontSize: '0.78rem',
+              fontSize: 'clamp(0.7rem, 2vw, 0.78rem)',
               fontWeight: 700,
               textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              marginBottom: '16px',
+              letterSpacing: '0.04em',
+              marginBottom: '14px',
               backdropFilter: 'blur(6px)',
               border: '1px solid rgba(255, 255, 255, 0.15)'
             }}
           >
             <Shield size={14} color="#38bdf8" />
-            <span>Integrated Hospital & Clinic Management Platform</span>
+            <span>Integrated Clinical Platform</span>
           </div>
 
           <h1
             style={{
-              fontSize: 'clamp(1.8rem, 4vw, 2.75rem)',
+              fontSize: 'clamp(1.5rem, 4vw, 2.75rem)',
               fontWeight: 800,
               letterSpacing: '-0.03em',
               lineHeight: 1.2,
-              marginBottom: '16px'
+              marginBottom: '12px'
             }}
           >
             Digital Healthcare, Structured Prescriptions & Unified Records
@@ -221,11 +221,11 @@ export default function AuthLanding({ onToast }) {
 
           <p
             style={{
-              fontSize: 'clamp(0.95rem, 2vw, 1.12rem)',
+              fontSize: 'clamp(0.88rem, 2vw, 1.05rem)',
               color: '#cbd5e1',
               maxWidth: '680px',
-              margin: '0 auto 28px',
-              lineHeight: 1.6
+              margin: '0 auto 20px',
+              lineHeight: 1.5
             }}
           >
             A modern hospital portal connecting medical doctors and patients with instant digital prescriptions,
@@ -235,33 +235,34 @@ export default function AuthLanding({ onToast }) {
           {/* Quick Metrics */}
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '32px',
-              flexWrap: 'wrap',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '10px',
               borderTop: '1px solid rgba(255, 255, 255, 0.12)',
-              paddingTop: '24px'
+              paddingTop: '18px',
+              maxWidth: '680px',
+              margin: '0 auto'
             }}
           >
             <div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#38bdf8' }}>4+ Departments</div>
-              <div style={{ fontSize: '0.76rem', color: '#94a3b8', textTransform: 'uppercase' }}>Medicine, Cardio, Pediatrics, Ortho</div>
+              <div style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)', fontWeight: 800, color: '#38bdf8' }}>4+ Depts</div>
+              <div style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.72rem)', color: '#94a3b8', textTransform: 'uppercase' }}>Medicine, Cardio, Peds</div>
             </div>
             <div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#2dd4bf' }}>100% Digital Rx</div>
-              <div style={{ fontSize: '0.76rem', color: '#94a3b8', textTransform: 'uppercase' }}>Standardized Dosage & Printable Slips</div>
+              <div style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)', fontWeight: 800, color: '#2dd4bf' }}>100% Digital</div>
+              <div style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.72rem)', color: '#94a3b8', textTransform: 'uppercase' }}>Prescriptions & Slips</div>
             </div>
             <div>
-              <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#fcd34d' }}>Instant Demo</div>
-              <div style={{ fontSize: '0.76rem', color: '#94a3b8', textTransform: 'uppercase' }}>Preloaded Patients & Schedules</div>
+              <div style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)', fontWeight: 800, color: '#fcd34d' }}>Instant Demo</div>
+              <div style={{ fontSize: 'clamp(0.62rem, 1.5vw, 0.72rem)', color: '#94a3b8', textTransform: 'uppercase' }}>Preloaded Records</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Main Choice Section: Doctor Login vs Patient Login */}
-      <section style={{ maxWidth: '1000px', margin: '-36px auto 48px', padding: '0 20px', width: '100%', position: 'relative', zIndex: 2 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px' }}>
+      <section style={{ maxWidth: '1000px', margin: '-24px auto 40px', padding: '0 16px', width: '100%', position: 'relative', zIndex: 2 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
           
           {/* Card 1: Doctor Portal */}
           <div

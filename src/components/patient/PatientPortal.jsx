@@ -80,19 +80,10 @@ export default function PatientPortal({ patient, onToast, initialTab = 'overview
 
   return (
     <div className="patient-portal">
-      {/* Patient Tab Navigation Bar */}
-      <div
-        style={{
-          display: 'flex',
-          gap: '8px',
-          paddingBottom: '16px',
-          marginBottom: '24px',
-          borderBottom: '1px solid var(--border-color)',
-          overflowX: 'auto'
-        }}
-      >
+      {/* Tab Navigation Bar */}
+      <div className="portal-nav-tabs">
         <button
-          className={`btn ${activeTab === 'overview' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'overview' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('overview')}
         >
           <HeartPulse size={16} />
@@ -100,7 +91,7 @@ export default function PatientPortal({ patient, onToast, initialTab = 'overview
         </button>
 
         <button
-          className={`btn ${activeTab === 'prescriptions' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'prescriptions' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('prescriptions')}
         >
           <FileText size={16} />
@@ -108,7 +99,7 @@ export default function PatientPortal({ patient, onToast, initialTab = 'overview
         </button>
 
         <button
-          className={`btn ${activeTab === 'appointments' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'appointments' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('appointments')}
         >
           <Calendar size={16} />
@@ -116,7 +107,7 @@ export default function PatientPortal({ patient, onToast, initialTab = 'overview
         </button>
 
         <button
-          className={`btn ${activeTab === 'lab-reports' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'lab-reports' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('lab-reports')}
         >
           <Microscope size={16} />
@@ -124,7 +115,7 @@ export default function PatientPortal({ patient, onToast, initialTab = 'overview
         </button>
 
         <button
-          className={`btn ${activeTab === 'trends' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'trends' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('trends')}
         >
           <TrendingUp size={16} />
@@ -132,15 +123,15 @@ export default function PatientPortal({ patient, onToast, initialTab = 'overview
         </button>
 
         <button
-          className={`btn ${activeTab === 'history' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'history' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('history')}
         >
           <Clock size={16} />
-          <span>Medical History & Allergies</span>
+          <span>Medical History</span>
         </button>
 
         <button
-          className={`btn ${activeTab === 'doctors' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'doctors' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('doctors')}
         >
           <Stethoscope size={16} />
@@ -148,7 +139,7 @@ export default function PatientPortal({ patient, onToast, initialTab = 'overview
         </button>
 
         <button
-          className={`btn ${activeTab === 'profile' ? 'btn-secondary' : 'btn-outline'}`}
+          className={`portal-nav-tab ${activeTab === 'profile' ? 'active-secondary' : ''}`}
           onClick={() => setActiveTab('profile')}
         >
           <User size={16} />

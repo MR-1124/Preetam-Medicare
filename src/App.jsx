@@ -21,7 +21,13 @@ export default function App() {
     return getSession();
   });
 
-  const [viewMode, setViewModeState] = useState(() => getViewMode());
+  const [viewMode, setViewModeState] = useState(() => {
+    const saved = getViewMode();
+    if (typeof window !== 'undefined' && window.innerWidth <= 768) {
+      return 'android';
+    }
+    return saved || 'laptop';
+  });
   const [toasts, setToasts] = useState([]);
 
   // Toast dispatch helper
@@ -70,7 +76,7 @@ export default function App() {
       return (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <Header session={session} onToast={addToast} />
-          <main style={{ flex: 1, padding: viewMode === 'android' ? '16px' : '28px 32px' }}>
+          <main className="app-main-content">
             <DoctorPortal doctor={session.user} onToast={addToast} />
           </main>
         </div>
@@ -81,7 +87,7 @@ export default function App() {
       return (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <Header session={session} onToast={addToast} />
-          <main style={{ flex: 1, padding: viewMode === 'android' ? '16px' : '28px 32px' }}>
+          <main className="app-main-content">
             <PatientPortal patient={session.user} onToast={addToast} />
           </main>
         </div>
