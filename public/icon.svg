@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="110" fill="#0284c7" />
+  <!-- Medical Cross Body -->
+  <rect x="216" y="100" width="80" height="312" rx="20" fill="white" />
+  <rect x="100" y="216" width="312" height="80" rx="20" fill="white" />
+  <!-- ECG Heartbeat Line -->
+  <path d="M120 256 H200 L230 180 L282 332 L312 256 H392" stroke="#0284c7" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Center Care Indicator -->
+  <circle cx="256" cy="256" r="28" fill="#0d9488" />
+</svg>

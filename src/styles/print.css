@@ -1,0 +1,371 @@
+/* ==========================================================================
+   MediCare Connect - Printable Hospital Prescription Sheet & @media print
+   ========================================================================== */
+
+.prescription-slip {
+  background: #ffffff;
+  color: #1e293b;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 36px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  font-family: var(--font-main);
+  line-height: 1.45;
+}
+
+/* Rx Background Watermark */
+.rx-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 160px;
+  font-weight: 900;
+  font-family: 'Times New Roman', serif;
+  color: rgba(2, 132, 199, 0.035);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Hospital Header */
+.rx-header {
+  border-bottom: 2.5px solid #0284c7;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.rx-hospital-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rx-hospital-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0369a1;
+  letter-spacing: -0.01em;
+}
+
+.rx-hospital-sub {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.rx-doctor-info {
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid #e2e8f0;
+}
+
+.rx-doctor-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.rx-doctor-degrees {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #0284c7;
+  margin-top: 1px;
+}
+
+.rx-doctor-details {
+  font-size: 0.76rem;
+  color: #64748b;
+  margin-top: 3px;
+}
+
+/* Patient Metadata Bar */
+.rx-patient-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  background: #f1f5f9;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  font-size: 0.82rem;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 1;
+}
+
+.rx-patient-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.rx-patient-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.04em;
+}
+
+.rx-patient-val {
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: 1px;
+}
+
+/* Diagnosis Banner */
+.rx-diagnosis-box {
+  background: #f0f9ff;
+  border-left: 4px solid #0284c7;
+  padding: 10px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.rx-diagnosis-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0369a1;
+  letter-spacing: 0.04em;
+}
+
+.rx-diagnosis-text {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 2px;
+}
+
+/* Rx Symbol & Table */
+.rx-table-container {
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.rx-symbol-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #0284c7;
+}
+
+.rx-symbol {
+  font-family: 'Times New Roman', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+}
+
+.rx-symbol-tagline {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.rx-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.rx-table th {
+  background-color: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  border-top: 1px solid #cbd5e1;
+  border-bottom: 2px solid #94a3b8;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rx-table td {
+  padding: 12px 12px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+.rx-med-name {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.rx-med-form {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.rx-med-instructions {
+  font-size: 0.78rem;
+  color: #0284c7;
+  font-style: italic;
+  margin-top: 3px;
+}
+
+/* Advice & Notes */
+.rx-advice-section {
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.rx-advice-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #475569;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.rx-advice-list {
+  padding-left: 18px;
+  font-size: 0.82rem;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* Signature & Stamp Block */
+.rx-footer-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 1;
+}
+
+.rx-qr-mock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rx-qr-code {
+  width: 58px;
+  height: 58px;
+  border: 2px solid #0f172a;
+  padding: 2px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rx-qr-pattern {
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(45deg, #0f172a 0, #0f172a 3px, transparent 0, transparent 6px);
+}
+
+.rx-signature-box {
+  text-align: right;
+}
+
+.rx-sig-stamp {
+  font-family: 'Brush Script MT', cursive, sans-serif;
+  font-size: 1.4rem;
+  color: #0369a1;
+  margin-bottom: 2px;
+}
+
+.rx-sig-line {
+  width: 170px;
+  height: 1.5px;
+  background: #0f172a;
+  margin-left: auto;
+  margin-bottom: 4px;
+}
+
+.rx-sig-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.rx-sig-sub {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   @media print Rules (Strict isolation for printing)
+   ========================================================================== */
+@media print {
+  /* Hide UI chrome */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .device-toolbar,
+  .app-header,
+  .desktop-sidebar,
+  .mobile-bottom-bar,
+  .btn,
+  .no-print,
+  .modal-footer,
+  .modal-header button {
+    display: none !important;
+  }
+
+  .modal-overlay {
+    position: static !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+  }
+
+  .modal-card {
+    max-width: 100% !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    animation: none !important;
+  }
+
+  .modal-body {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  .prescription-slip {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    padding: 10mm 12mm !important;
+  }
+
+  .rx-watermark {
+    opacity: 0.15 !important;
+  }
+}
