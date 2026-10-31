@@ -675,7 +675,7 @@
 /* Toast Notifications */
 .toast-container {
   position: fixed;
-  bottom: 24px;
+  bottom: 92px;
   right: 24px;
   display: flex;
   flex-direction: column;
@@ -717,7 +717,7 @@
 /* Mobile Toast adjustments */
 @media (max-width: 640px) {
   .toast-container {
-    bottom: 14px;
+    bottom: 84px;
     left: 12px;
     right: 12px;
     align-items: stretch;

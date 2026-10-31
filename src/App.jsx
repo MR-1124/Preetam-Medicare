@@ -11,8 +11,10 @@ import AuthLanding from './components/auth/AuthLanding';
 import DoctorPortal from './components/doctor/DoctorPortal';
 import PatientPortal from './components/patient/PatientPortal';
 import ToastContainer from './components/common/Toast';
+import ClinicAssistant from './components/common/ClinicAssistant';
 import './styles/index.css';
 import './styles/components.css';
+import './styles/clinicAssistant.css';
 import './styles/print.css';
 
 export default function App() {
@@ -125,12 +127,14 @@ export default function App() {
             {/* Android Screen Inner */}
             <div className="android-screen-content">
               {renderContent()}
+              <ClinicAssistant isMobileSimulator={true} />
             </div>
           </div>
         </div>
       ) : (
         <div className="desktop-view-container">
           {renderContent()}
+          <ClinicAssistant isMobileSimulator={false} />
         </div>
       )}
 
